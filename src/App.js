@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AllCountryScores from './AllCountryScores';
 
 function App() {
+  let arrOfObj = AllCountryScores()
+ console.log(arrOfObj)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p>High scores per country</p>
+        
+          {arrOfObj.map((obj,index) => {
+            return (
+              <table key = {index}>
+                <thead>
+                <th>{"HIGH SCORES: " + obj.name}</th>
+                </thead>
+                <tbody>
+                {obj.scores.map((scorObj,index2) => {
+                    return (
+                      <tr key = {index2}>
+                        <td>{scorObj.n}</td>
+                        <td>{scorObj.s}</td>
+                      </tr>
+                          )
+                      })
+                }
+                </tbody>
+              </table>
+              
+            )
+           })
+          }
+          
+        
     </div>
   );
 }
