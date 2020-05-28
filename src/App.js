@@ -2,7 +2,7 @@ import React from 'react';
 
 import AllCountryScores from './AllCountryScores';
 import './App.css';
-import './grid.css'y;
+import './grid.css';
 
 function App() {
   let arrOfObj = AllCountryScores()
