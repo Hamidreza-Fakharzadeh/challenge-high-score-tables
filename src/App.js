@@ -13,16 +13,23 @@ function App() {
         
         <div className ="table-score lg-col-12 md-col-12">
         <h1 className ="heading">High scores per country</h1>
-          {arrOfObj
-               .sort( () => (Math.random() - 0.5) )
+          {arrOfObj.sort(function(leterA, leterB) {
+                   if(leterA.name.toLowerCase() < leterB.name.toLowerCase())
+                   return -1;
+                   if(leterA.name.toLowerCase() > leterB.name.toLowerCase())
+                   return 1;
+                   return 0;
+                 })
+
                .map((obj,index) => {
+                 
                     return (
                       <div key = {index} className ="body-score">
-                          <h2 className ="country">{"HIGH SCORES: " + obj.name}</h2>
+                          <h2 className ="country" >{"HIGH SCORES: " + obj.name}</h2>
                           
                             {obj.scores.map((scorObj,index2) => {
                                   return (
-                                    <div key = {index2} className ="last-div row">
+                                    <div key={index2} className ="last-div row">
                                       <div className = "last-child1 lg-col-6 md-col-6">{scorObj.n}</div>
                                       <div className = "last-child2 lg-col-6 md-col-6" >{scorObj.s}</div>
                                     </div>
