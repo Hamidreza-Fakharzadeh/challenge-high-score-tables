@@ -27,6 +27,13 @@ text-align: center;
   background-color: azure;
   font-size: large;
 }
+button {
+  width: 60px;
+  height: 25px;
+  margin-top: 10px;
+  background-color: rgb(155, 155, 184);
+  
+}
 
 
 
